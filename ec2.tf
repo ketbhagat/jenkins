@@ -3,7 +3,7 @@ resource "aws_instance" "jenkins" {
 	key_name = "AWS2022"
     	vpc_security_group_ids = [ "sg-0f33dc7a7f2ba3c66" ]
 	instance_type  =  "t2.micro"
-	user_data = file(“./script.sh”)
+	user_data = file("./script.sh")
 	/*user_data = <<EOF
 		#!/bin/bash
 		wget -O /etc/yum.repos.d/jenkins.repo \

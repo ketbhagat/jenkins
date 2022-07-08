@@ -1,9 +1,7 @@
 resource "aws_instance" "jenkins" {
 	ami = data.aws_ami.amazonaminame.id 
-	#ami = "ami-0cff7528ff583bf9a"
-	key_name = "Mumbai-KeyPair"
-        #vpc_security_group_ids = [ "sg-0f33dc7a7f2ba3c66" ]
-	vpc_security_group_ids = [ "sg-074fe8bf9b37d732d" ]
+	key_name = "AWS2022"
+    	vpc_security_group_ids = [ "sg-0f33dc7a7f2ba3c66" ]
 	instance_type  =  "t2.micro"
 	/*user_data = <<EOF
 		#!/bin/bash
@@ -27,7 +25,7 @@ resource "aws_instance" "os2" {
         vpc_security_group_ids = [ "sg-0f33dc7a7f2ba3c66" ]
 	instance_type  =  "t2.micro"
 	tags  =  {  
-			Name = "instance2"
+			Name = "instanceos2"
 		}
 }
 */

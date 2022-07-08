@@ -4,7 +4,7 @@ terraform {
 	required_providers {
 		wellspringcloud = {
 			source  = "registry.terraform.io/hashicorp/aws"
-			version = "~> 4.19"
+			version = "~> 4.22"
 		}
 	}
 }

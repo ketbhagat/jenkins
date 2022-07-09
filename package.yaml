@@ -1,0 +1,24 @@
+---
+- name: perform the following tasks
+  hosts:
+   - jenkins
+  become: true
+  tasks:
+   - name: Install Repo  
+     command: "wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo"
+   - name: Install
+     command: "rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key"
+   - name: Install Packages
+     yum:
+      name:
+       - java
+       - jenkins
+      state: present
+   - name: daemon-reload
+     systemd:
+      daemon_reload: yes
+   - name: Start and Enable the service
+     service:
+      name: jenkins
+      state: started
+      enabled: yes

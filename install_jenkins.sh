@@ -6,5 +6,6 @@ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 sudo yum upgrade -y
 sudo yum install java -y
 sudo yum install jenkins -y
+sudo mount /dev/xvdf /var/lib/jenkins/
 sudo systemctl daemon-reload
 sudo systemctl enable jenkins --now

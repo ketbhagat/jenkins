@@ -4,7 +4,7 @@ resource "aws_instance" "jenkins" {
     	vpc_security_group_ids = [ "sg-0f33dc7a7f2ba3c66" ]
 	instance_type =  "t2.micro"
 	availability_zone = "us-east-1b"
-	user_data = "${file("install_jenkins.sh")}"
+	user_data = "${file("script.sh")}"
 	tags  =  {  
 			Name = "jenkins"
 		}

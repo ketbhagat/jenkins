@@ -4,7 +4,10 @@ resource "aws_instance" "jenkins" {
     	vpc_security_group_ids = [ "sg-0f33dc7a7f2ba3c66" ]
 	instance_type =  "t2.micro"
 	availability_zone = "us-east-1b"
-	user_data = "${file("script.sh")}"
+	root_block_device {
+    		volume_size = "15"
+	}
+	user_data = "${file("script-jmaster.sh")}"
 	tags  =  {  
 			Name = "jenkins"
 		}
@@ -25,7 +28,7 @@ resource "aws_instance" "jenkins-agent" {
 	availability_zone = "us-east-1b"
 	user_data = "${file("script.sh")}"
 	private_ip = "172.31.80.80"
-       # user_data = "${file("install_jenkins.sh")}"
+       # user_data = "${file("script_jagent.sh")}"
         tags  =  {
                         Name = "jenkins-agent"
                 }
